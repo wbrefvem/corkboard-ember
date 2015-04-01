@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'corkboard-ember',
+    modulePrefix: 'client',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
@@ -17,6 +17,18 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     }
+  };
+
+  ENV.contentSecurityPolicyHeader = 'Content-Security-Policy-Report-Only';
+
+  ENV.contentSecurityPolicy = {
+    'default-src': "'none'",
+    'script-src': "'self' http://www.google-analytics.com",
+    'font-src': "'self' http://fonts.gstatic.com",
+    'connect-src': "'self' http://localhost:1337",
+    'img-src': "'self' http://www.raleighnc.gov",
+    'style-src': "'self' http://fonts.googleapis.com",
+    'media-src': "'self'",
   };
 
   if (environment === 'development') {
